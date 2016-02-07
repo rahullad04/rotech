@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="~/DashboardPurchase.aspx"  title="Purchase Order">
+        <siteMapNode url="~/UnitMaster.aspx" title="Unit Master"  description="" />
+        <siteMapNode url="~/Part/ClassMaster.aspx" title="Class Master"  description="" />
+        <siteMapNode url="~/Part/CatagoryMaster.aspx" title="Category Master"  description="" />
+        <siteMapNode url="~/Part/PartMaster.aspx" title="Part Master"  description="" />
+        <siteMapNode url="~/Supplier/SupplierMaster.aspx" title="Supplier Master"  description="" />
+     </siteMapNode>
+  <siteMapNode url="~/DashboardSales.aspx"  title="Sales">
+    <sitemapnode url="~/UnitMaster.aspx" title="Unit Master"  description="" />
+  </siteMapNode >
+</siteMap>

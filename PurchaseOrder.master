@@ -1,0 +1,96 @@
+<%@ Master Language="VB" CodeFile="PurchaseOrder.master.vb" Inherits="Mainpage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Rotech ERP System</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen" />
+    <link href="css/styles.css" rel="stylesheet" media="screen" />
+    <link href="css/jquery.easy-pie-chart.css" rel="stylesheet" media="screen" />
+    <link href="css/DT_bootstrap.css" media="screen" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </a><a class="brand" href="#">ROTECH ERP SYSTEM</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav pull-right">
+                        <li class="dropdown"><a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-user"></i>
+                            <asp:Label ID="lblusername" runat="server"></asp:Label>
+                            <i class="caret"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a tabindex="-1" href="#">Profile</a> </li>
+                                <li class="divider"></li>
+                                <li><a tabindex="-1" href="Default.aspx">Logout</a> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav">
+                        <li class="active"><a href="<% =ResolveClientUrl("DashboardPurchase.aspx") %>">Materials</a></li>
+                        <li><a href="<% =ResolveClientUrl("DashboardSales.aspx") %>">Sales</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3" id="sidebar">
+                <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                    <li id="lnkdashboard" runat="server"><a href="<% =ResolveClientUrl("DashboardPurchase.aspx") %>">
+                        <i class="icon-chevron-right"></i>Dashboard</a></li>
+                    <li id="lnkunit" runat="server"><a href="<% =ResolveClientUrl("~/posystem/UnitMaster.aspx") %>">
+                        <i class="icon-chevron-right"></i>Unit Master</a></li>
+                    <li id="lnktrans" runat="server"><a href="<% =ResolveClientUrl("~/posystem/transport/TransportMaster.aspx") %>">
+                        <i class="icon-chevron-right"></i>Transport Master</a></li>
+                    <li id="lnkclass" runat="server"><a href="<% =ResolveClientUrl("~/Posystem/ClassMaster.aspx") %>">
+                        <i class="icon-chevron-right"></i>Class Master</a></li>
+                    <li id="lnkcategory" runat="server"><a href="<% =ResolveClientUrl("~/Posystem/Category/CatagoryMaster.aspx") %>">
+                        <i class="icon-chevron-right"></i>Category Master</a></li>
+                    <li id="lnkpart" runat="server"><a href="<% =ResolveClientUrl("~/posystem/Part/PartMaster.aspx") %>">
+                        <i class="icon-chevron-right"></i>Part Master</a></li>
+                    <li id="lnksupplier" runat="server"><a href="<% =ResolveClientUrl("~/posystem/Supplier/SupplierMaster.aspx") %>">
+                        <i class="icon-chevron-right"></i>Supplier Master</a></li>
+                    <li id="Lnksupplierreport" runat="server"><a href="<% =ResolveClientUrl("~/posystem/Supplier/Supplierreport.aspx") %>">
+                        <i class="icon-chevron-right"></i>Supplier Report</a></li>
+                    <li id="lnkcreatepo" runat="server"><a href="<% =ResolveClientUrl("~/posystem/Createpo/Createpo.aspx") %>">
+                        <i class="icon-chevron-right"></i>CreatePO</a></li>
+                    <li id="lnkreprintpo" runat="server"><a href="<% =ResolveClientUrl("~/Posystem/Createpo/Reportviwer.aspx") %>">
+                        <i class="icon-chevron-right"></i>Reprint PO</a></li>
+                    <li id="lnkboms" runat="server"><a href="<% =ResolveClientUrl("~/Materials/BOMS/BomsMaster.aspx") %>">
+                        <i class="icon-chevron-right"></i>Boms Master</a></li>
+                    <li id="lnlreprintBOMS" runat="server"><a href="<% =ResolveClientUrl("~/Materials/BOMS/Reportviewer.aspx") %>">
+                        <i class="icon-chevron-right"></i>Reprint Boms</a></li>
+                </ul>
+            </div>
+            <div class="span9" id="content">
+                <form id="form1" runat="server">
+                <asp:ContentPlaceHolder ID="body" runat="server">
+                </asp:ContentPlaceHolder>
+                </form>
+            </div>
+        </div>
+        <hr />
+        <footer>
+        <p> &copy; 2015 RotechERP| Design by:CrystalAct</p>
+</footer>
+    </div>
+    <script src="<%= ResolveClientUrl("~/js/modernizr-2.6.2-respond-1.1.0.min.js")%>"
+        type="text/javascript"></script>
+    <script src="<%= ResolveClientUrl("~/js/scripts.js")%>" type="text/javascript"> </script>
+    <script src="<%=ResolveClientUrl("~/js/validation/form-validation.js") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/js/validation/jquery.validate.min.js") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/js/common.js") %>" type="text/javascript"></script>
+</body>
+</html>
